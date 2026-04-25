@@ -59,17 +59,22 @@ speedx = 3
 speedy = 3
 
 
+
 while game:
     for e  in event.get():
         if e.type == QUIT:
             game = False
 
+        
+
     if finish != True:
         window.fill(back)
         racket1.update_l()
         racket2.update_r()
+        ball.rect.x += speedx
+        ball.rect.y += speedy
 
-         if sprite.collide_rect(racket1, ball) or sprite.collide_rect(racket2, ball):
+        if sprite.collide_rect(racket1, ball) or sprite.collide_rect(racket2, ball):
             speedx *= -1
 
         if ball.rect.y > win_height - 50 or ball.rect.y < 0:
